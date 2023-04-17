@@ -1,27 +1,36 @@
-# Users
+# InterviewStarter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+This application is a foundation to build your app on.
 
-## Development server
+It includes:
+- Standalone components
+- Angular Material UI
+- NGRX
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+It is expected that all of the included features of this starter is used to build out a scalable and modular application.
 
-## Code scaffolding
+The application should be type-safe and the use of type *any* is extremely discouraged.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Not all data props from the API is required.
 
-## Build
+Data only needs to be persisted to the store.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+All http requests from the app should be logged to console.
 
-## Running unit tests
+## Time restrictions
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You have up to 2 hours to get as much done and as best as you can. These timestamps should be reflected in your git commits between your initial and final commits.
 
-## Running end-to-end tests
+## Product brief
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This product enables the user to maintain the users data sourced from *https://dummyjson.com/users*
 
-## Further help
+### Presentation
+The users page should display the table of users with modification in the expandable rows as per the below wire frame. 
+While saving is in progress a spinner should be shown on the save button and the buttons should be
+disabled.
+The table data should update automatically when new data is in the store.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+When loading data, the table should gracefully handle presentation.
+
+![wire frame presentation](./docs/readme/presentation.png)
