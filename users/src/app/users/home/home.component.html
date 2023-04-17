@@ -1,0 +1,114 @@
+<div class="container mt-2">
+    <div class="row ">
+        <div class="col" >
+        
+            <div class="row border border-dark">
+            
+            <h5 class="card-title">User Management</h5>
+            </div>
+            
+            <div class="row border border-dark">
+                <div class="col-xl-12 table-responsive" style="padding: 3%;">
+                    <div class="row">
+                        <div class="col-xl-12 border border-dark" >
+                            <table class="table table-striped border-dark">
+                                <thead>
+                                  <tr>
+                                    <th></th>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>MaidenName</th>
+                                    <th>Age</th>
+                                    <th>Gender</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>BirthDate</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <ng-container *ngFor="let user of users$ | async">
+                                    <tr data-toggle="collapse" [attr.data-target]="'#' + user.id" class="clickable">
+                                        <td style="cursor: pointer;" (click)="onEdit(+user.id)"><span class="caret">Edit</span></td>
+                                        <td>{{ user.firstName }}</td>
+                                        <td>{{ user.lastName }}</td>
+                                        <td>{{ user.maidenName }}</td>
+                                        <td>{{ user.age }}</td>
+                                        <td>{{ user.gender }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>{{ user.phone }}</td>
+                                        <td>{{ user.birthDate }}</td>                           
+                                      </tr>
+                                      <tr *ngIf="hideRuleContent[+user.id]" id="{{user.id}}" class="">
+                                        <td colspan="4">
+                                          <div class="details">
+                                            <p>Edit User</p>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label for="firstName">FirstName</label> 
+                                                    <input type="text" class="form-control" [(ngModel)]="userForm.firstName" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label for="lastName">LastName</label> 
+                                                    <input type="text" class="form-control" [(ngModel)]="userForm.lastName" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label for="maidenName">MaidenName</label> 
+                                                    <input type="text" class="form-control" [(ngModel)]="userForm.maidenName" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label for="age">Age</label> 
+                                                    <input type="text" class="form-control" [(ngModel)]="userForm.age" />
+                                                </div>    
+                                            </td>
+                                          </div>
+                                          <div class=" details">
+                                            <td>
+                                                <div class="form-group">
+                                                    <label for="gender">Gender</label> 
+                                                    <input type="text" class="form-control" [(ngModel)]="userForm.gender" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label for="email">Email</label> 
+                                                    <input type="text" class="form-control" [(ngModel)]="userForm.email" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label for="phone">Phone</label> 
+                                                    <input type="text" class="form-control" [(ngModel)]="userForm.phone" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label for="birthDate">BirthDate</label> 
+                                                    <input type="date" class="form-control" [(ngModel)]="user.birthDate" />
+                                                </div>
+                                            </td>  
+                                          </div>
+                                            <button class="btn btn-sm btn-primary" (click)="onSave()" [disabled]="onsaving" *ngIf="!onsaving">Save</button>
+                                            <button class="btn btn-sm btn-primary" [disabled]="onsaving" *ngIf="onsaving"><div class="spinner-border spinner-border-sm"></div></button>
+                                            <button class="btn btn-sm btn-danger" (click)="onEdit(+user.id)"  [disabled]="onsaving">Cancel</button>
+                                        </td>
+                                      </tr>
+                                  </ng-container>
+                                  
+                                  
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
